@@ -1,4 +1,3 @@
-
 container:
   image: client:0.1
 

@@ -1,20 +1,38 @@
+{{- $defaults := . -}}
+
+  {{- range $index, $value := .Values.microservises }}
+  {{- $_ := set $value "nameOverride" $index }}
+  {{- $microservice := dict "Values" $value }}
+  {{- $defaultsCopy := $defaults | deepCopy }}
+  {{- with mergeOverwrite $defaultsCopy $microservice }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: client-deployment
+  name: {{ include "common.fullname" . }}
 spec:
-  replicas: 1
+  replicas: {{ $value.replicaCount | default 1 }}
   selector:
     matchLabels:
-      app: client
+      {{- include "common.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: client
+        {{- include "common.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - image: client:0.1
+        - image: {{ $value.image.name }}:{{ $value.image.tag }}
+          name: {{ $value.image.name }}
           imagePullPolicy: Never
-          name: client
           ports:
-            - containerPort: 80
+          {{- range $value.service.ports }}
+          - containerPort: {{ .containerPort }}
+            name: {{ .name }}
+          {{- end}}
+          envFrom:
+            - configMapRef:
+                name: {{ include "common.fullname" $ }}-config
+            - secretRef:
+            name: {{ include "common.fullname" $ }}-secret
+  {{ end }}
+  {{ end }}

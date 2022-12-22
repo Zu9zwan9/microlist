@@ -2,6 +2,6 @@ import React from 'react';
 
 const About = (props) => {
   console.log(props);
-  return <div>hello from about page</div>;
+  return <div>About</div>;
 };
 export default About;

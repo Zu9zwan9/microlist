@@ -9,4 +9,9 @@ eval $(minikube docker-env)\
 && docker build -t todos:0.1 -f services/todos/Dockerfile .\
 && kubectl apply -f k8s/todos/deployment.yaml\
 && kubectl apply -f k8s/todos/service.yaml\
-&& kubectl apply -f k8s/todos/ingress.yaml
+&& kubectl apply -f k8s/todos/ingress.yaml\
+\
+&& docker build -t send:0.1 -f services/notification/Dockerfile .\
+&& kubectl apply -f k8s/notification/deployment.yaml\
+&& kubectl apply -f k8s/notification/service.yaml\
+&& kubectl apply -f k8s/notification/ingress.yaml

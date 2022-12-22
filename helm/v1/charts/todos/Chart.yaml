@@ -1,9 +1,9 @@
 apiVersion: v2
 type: application
-version: 0.1.0
+version: 0.0.1
 name: todos
 appVersion: "0.1"
-description: "To-do list client"
+description: "To-do list service"
 
 keywords:
     - to-do
