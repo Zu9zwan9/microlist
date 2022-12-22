@@ -1,10 +1,7 @@
 FROM node:16.13.1
-
-WORKDIR /
-COPY services/todos services/todos
-
 WORKDIR /services/todos
-
+COPY services/todos/package*.json ./
 RUN npm install
+COPY services/todos ./
 EXPOSE 8080
-CMD npm start
+CMD ["npm", "start"]

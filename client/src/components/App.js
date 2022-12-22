@@ -8,7 +8,7 @@ import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
 import Navbar from './Navbar';
 
-const TodoContainer = () => {
+const App = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -135,4 +135,4 @@ const TodoContainer = () => {
   );
 };
 
-export default TodoContainer;
+export default App;

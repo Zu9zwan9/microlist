@@ -17,12 +17,11 @@
     list-style: none;
     position: fixed;
     top: 0;
-    background: darkcyan;
+    background: #53f1ff;
     left: 0;
     bottom: 0;
     height: 100vh;
     width: 0;
-    overflow: hidden;
     max-width: 290px;
     z-index: 9;
 }
