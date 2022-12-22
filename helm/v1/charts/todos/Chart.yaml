@@ -1,0 +1,15 @@
+apiVersion: v2
+type: application
+version: 0.1.0
+name: todos
+appVersion: "0.1"
+description: "To-do list client"
+
+keywords:
+    - to-do
+    - list
+    - client
+    - react
+    - node
+    - express
+

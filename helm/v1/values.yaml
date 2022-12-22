@@ -1,0 +1,5 @@
+
+container:
+  image: client:0.1
+
+replicaCount: 2
