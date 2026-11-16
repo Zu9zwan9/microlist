@@ -1,3 +1,6 @@
 .idea
 client/node_modules
 client/build
+serviceAccountKey.json
+.env
+node_modules/

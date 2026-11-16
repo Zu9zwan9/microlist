@@ -1,5 +1,5 @@
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const msg = {
     to: 'bardakh.maksym@lll.kpi.ua.com',
     from: 'maksym.bardakh@gmail.com', // Use the email address or domain you verified above
